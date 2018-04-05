@@ -1,0 +1,14 @@
+<div>
+	<ul style="list-style: none">
+		{{#each chair}}
+			<li>
+				<div class="chair">
+					<img src="{{image}}"></img><br>
+					<h2><a href="/store/{{slug}}">{{name}}</a></h2>
+					${{price}}<br/>
+				</div>
+			</li>
+		{{/each}}
+	</ul> 
+</div>
+

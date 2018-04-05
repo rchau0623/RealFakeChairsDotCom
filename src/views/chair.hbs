@@ -1,0 +1,20 @@
+<div>
+	{{#if chair}}
+		<div>
+			<h2>{{chair.name}}</h2>
+			${{chair.price}}<br/>
+		</div>
+		<div><img src="{{chair.image}}"></img><br/><div>
+		<div>	
+			{{chair.description}}<br/>
+			<form method = "POST" action = "/cart/add/">
+				<input type = "hidden" name = "name" value = "{{chair.name}}">
+				<input type = "hidden" name = "image" value = "{{chair.image}}">
+				<input type = "hidden" name = "price" value = "{{chair.price}}">
+				<input type = "hidden" name = "description" value = "{{chair.description}}">
+				<input class = "addBtn" type = "submit" value = "Add to Cart">
+			</form>
+		</div>
+	{{/if}}
+</div>
+

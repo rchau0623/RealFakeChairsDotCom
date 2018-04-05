@@ -1,0 +1,36 @@
+{{message}}
+
+{{#if cart}}
+	<form method = "POST" action = "/cart/subtract">
+		<ul style="list-style: none">	
+			{{#each cart}}
+				<li>
+					<div class="chair">
+						<h2><a href = "/store/{{slug}}">{{name}}</a></h2>
+						<img src="{{this.image}}"></img><br>
+						${{price}}<br>
+						{{description}}<br>
+						Quantity: {{total}}<br>
+						
+						<input type = "hidden" name = "subtract" value = "{{_id}}">
+						<input type = "submit" value = "Remove One">
+					</div>
+				</li>
+			{{/each}}
+		</ul>
+	</form>
+	
+	Total Value: ${{total}}</br>
+	
+	<form action="/charge" method="post">
+		<script
+		src="https://checkout.stripe.com/checkout.js"
+		class="stripe-button"
+		data-key="pk_test_N9NkAeXlUAujwuo611NkggAN"
+		data-locale="auto" 
+		data-amount="{{total}}00"
+		>
+		</script>
+		<input type="hidden" name="chargeAmount" value="{{total}}00">
+	</form>
+{{/if}}
